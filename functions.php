@@ -32,7 +32,7 @@ function sendMail($name, $email, $subject, $message) {
 
 function defaultScripts() {
 ?>
-<script src="<? echo get_stylesheet_directory_uri(); ?>/js/jquery-2.2.3.min.js"></script>
+<script src="<? echo get_stylesheet_directory_uri(); ?>/js/jquery-3.1.1.min.js"></script>
 <script src="<? echo get_stylesheet_directory_uri(); ?>/js/material-1.2.1.min.js"></script>
 
 <script>
