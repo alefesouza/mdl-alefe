@@ -1,0 +1,168 @@
+/*
+Theme Name: Material Design Lite by Alefe Souza
+Theme URI: http://alefesouza.com
+Author: Alefe Souza | Google
+Author URI: http://alefesouza.com
+*/
+
+html, body {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+  background-color: #e5e5e5 !important;
+}
+
+main {
+	z-index: 5 !important;
+}
+
+a {
+	text-decoration: none;
+}
+
+footer {
+	padding: 16px;
+	background: #424242;
+	color: #ffffff;
+	box-sizing: border-box;
+	height: 100px;
+	min-height: 96px;
+}
+
+footer p:last-child {
+	margin: 0;
+}
+
+footer a {
+	color: #ffffff;
+	text-decoration: underline;
+}
+
+@media(max-width: 780px) {
+	footer {
+		min-height: 107px;
+	}
+}
+
+@media(max-width: 480px) {
+	footer {
+		min-height: 130px;
+	}
+}
+
+.change-language {
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.change-language.pt-br {
+	background-image: url(http://alefesouza.com/wp-content/plugins/qtranslate-x/flags/br.png);
+}
+.change-language.en {
+	background-image: url(http://alefesouza.com/wp-content/plugins/qtranslate-x/flags/gb.png);
+}
+
+.wrapper {
+	min-height: calc(100vh - 163px);
+	margin-bottom: -100px;
+	padding-bottom: 100px;
+}
+
+.mdl-layout__drawer {
+	z-index: 10 !important;
+}
+
+.mdl-layout__obfuscator {
+	z-index: 9 !important;
+}
+
+.page-content {
+	margin-top: -140px;
+}
+
+.mdl-layout__drawer-button i {
+  margin-top: 12px;
+}
+
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+	padding-top: 10px;
+	padding-bottom: 0px;
+	padding-left: 15px;
+	border-radius: 0px;
+	color: #000000;
+}
+
+.mdl-button {
+	text-align: left;
+	text-transform: initial;
+}
+
+.mdl-navigation {
+	padding-top: 63px !important;
+}
+
+.mdl-navigation .category {
+	margin: 16px;
+	font-weight: bold;
+}
+
+.mdl-navigation .post-drawer {
+	height: 60px;
+}
+
+.mdl-card {
+	margin: 0 auto;
+}
+
+.mdl-textfield {
+	width: 100%;
+}
+
+.selected {
+	background: #e5e5e5;
+}
+
+.post small {
+	margin-left: 18px;
+}
+
+.post img {
+	max-width: 100%;
+	height: auto;
+}
+
+.mdl-card__supporting-text {
+	width: auto;
+	text-align: justify;
+}
+
+@media(max-width: 1024px) {
+	.mdl-layout__header {
+		display: block !important;
+	}
+}
+
+.qtranxs-available-languages-message {
+	display: none;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* WordPress */
+
+img.alignright { float: right; margin: 0 0 1em 1em; }
+img.alignleft { float: left; margin: 0 1em 1em 0; }
+img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.alignright { float: right; }
+.alignleft { float: left; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
