@@ -1,3 +1,3 @@
-Esse é o tema de WordPress utilizado no site http://alefesouza.com , apenas adaptei o [Material Design Lite](http://getmdl.io) para ser usado em conjunto com o WordPress.
+# mdl-alefe
 
-Caso queira utiliza-lo no seu site, apenas crie uma pasta no diretório wp-content/themes do seu WordPress, cole o conteúdo desse repositório e defina para utilizar esse tema no painel.
+This is the WordPress theme used on https://alefesouza.com website, I've just adapted the [Material Design Lite](http://getmdl.io) to be used with WordPress.

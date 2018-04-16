@@ -1,13 +1,12 @@
-<?php if(endsWith($_SERVER["REQUEST_URI"], "portfolio/")) { ?>
+<?php if(!endsWith($_SERVER['REQUEST_URI'], 'portfolio/') && !endsWith($_SERVER['REQUEST_URI'], 'talks/')) { ?>
+        </div>
     </div>
-<? } else { ?>
-    </div></div>
-<? } ?>
-    <footer>
-      <? the_field("rodape_texto", 9); ?>
-    </footer>
-  </main>
+<?php } ?>
+        <footer>
+        <?php the_field('rodape_texto', 9); ?>
+        </footer>
+    </main>
 </div>
-<? wp_footer(); ?>
+<?php wp_footer(); ?>
 </body>
 </html>
