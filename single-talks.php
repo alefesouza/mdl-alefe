@@ -1,6 +1,6 @@
 <?php get_header();
 
-$en = $_SERVER['HTTP_HOST'] === 'alefesouza.com';
+$en = $_SERVER['HTTP_HOST'] !== 'alefesouza.com.br';
 ?>
 <main class="mdl-layout__content">
     <div class="wrapper">
@@ -84,13 +84,17 @@ $en = $_SERVER['HTTP_HOST'] === 'alefesouza.com';
       </script>
       <script>
       // Sorry for this
-      setTimeout(function() {
-        if(window.location.hash) {
-          $('.mdl-layout__content').animate({
-            scrollTop: $(window.location.hash).offset().top
-          }, 500);
+      var interval = setInterval(function() {
+        if ($('html').hasClass('mdl-js')) {
+          if (window.location.hash) {
+            $('.mdl-layout__content').animate({
+              scrollTop: $(window.location.hash).offset().top
+            }, 500);
+          }
+
+          clearInterval(interval);
         }
-      }, 3000);
+      }, 250);
       </script>
  <?php  }
     }

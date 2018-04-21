@@ -45,22 +45,23 @@
         <?= json_encode([
                 '@context' => 'http://schema.org',
                 '@type' => 'BreadcrumbList',
-                'itemListElement' => [[
-                '@type' => 'ListItem',
-                'position' => 1,
-                'item' => [
-                    '@id' => get_site_url().'/blog',
-                    'name' => 'Blog'
-                    ]
-                ], [
-                '@type' => 'ListItem',
-                'position' => 2,
-                'item' => [
-                    '@id' => get_site_url() . '/' . $wp->request,
-                    'name' => get_the_title()
-                    ]
-                ]]
-            ]); ?>
+                'itemListElement' => [
+                    [
+                        '@type' => 'ListItem',
+                        'position' => 1,
+                        'item' => [
+                            '@id' => get_site_url().'/blog',
+                            'name' => 'Blog'
+                        ]
+                    ], [
+                        '@type' => 'ListItem',
+                        'position' => 2,
+                        'item' => [
+                            '@id' => get_site_url() . '/' . $wp->request,
+                            'name' => get_the_title()
+                        ]
+                    ]]
+              ]); ?>
         </script>
  <?php }
   }

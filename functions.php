@@ -1,6 +1,6 @@
 <?php
 
-$en = $_SERVER['HTTP_HOST'] === 'alefesouza.com';
+$en = $_SERVER['HTTP_HOST'] !== 'alefesouza.com.br';
 
 if ($en) {
     define('WP_SITEURL', 'https://alefesouza.com');
@@ -23,21 +23,21 @@ function postDecoder($content) {
 
 function sendMail($name, $email, $subject, $message) {
     global $send;
-  
-    if($name == '' || $email == '' || $subject == '' || $message == '') {
-        echo '<script>alert(\'Por favor, preencha todos os campos.\');</script>';
+
+    if(empty($name) || empty($email) || empty($subject) || empty($message)) {
+        echo '<script>alert(\'Please, fill out all fields.\');</script>';
         $send = false;
     } else {
         $headers = 'Reply-To: '.$email.'\r\n'.
         'X-Mailer: PHP/'.phpversion();
-        $name_contact = 'Nome: '.$name.'\n';
+        $name_contact = 'Name: '.$name.'\n';
         $email_contact = 'Email: '.$email.'\n';
-        $subject_contact = 'Email: '.$email.' Assunto: '.$subject;
-        $message_contact = $name_contact.$email_contact.'Assunto: '.$subject.'\n\nMensagem: '.$message;
+        $subject_contact = 'Email: '.$email.' Subject: '.$subject;
+        $message_contact = $name_contact.$email_contact.'Subject: '.$subject.'\n\nMessage: '.$message;
         mail('contact@alefesouza.com', $subject_contact, $message_contact, $headers);
         $send = true;
-      
-        echo '<script>alert(\'Mensagem enviada!\');</script>';
+
+        echo '<script>alert(\'Your message has been sent successfully!\');</script>';
     }
 }
 
@@ -64,7 +64,7 @@ function defaultScripts() {
 
 function make_link($link, $name, $name_pt) {
 		global $en;
-	
+
     if(!empty($link)) {
 ?>
         <a href="<?= $link ?>"><?= $en ? $name : $name_pt ?></a>&nbsp;
@@ -76,7 +76,7 @@ function lateralIcon($link, $icon, $en_title, $pt_title, $extra_class = '') {
 	  global $en;
     $selected = strpos($_SERVER["REQUEST_URI"], $link) !== false;
 ?>
-    <a class="mdl-navigation__link mdl-button mdl-js-button mdl-js-ripple-effect<?php if ($selected) { echo ' selected'; } echo ' ' . $extra_class; ?>" href="/<?= $link; ?>/">
+    <a class="mdl-navigation__link mdl-button mdl-js-button mdl-js-ripple-effect<?= ($selected ? ' selected' : ' ') . $extra_class; ?>" href="/<?= $link; ?>/">
         <i class="mdl-color-text--black material-icons"><?= $icon; ?></i>
         <span><?= $en ? $en_title : $pt_title; ?></span>
     </a>

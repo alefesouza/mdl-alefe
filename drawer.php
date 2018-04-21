@@ -1,18 +1,14 @@
 <?php
-if ($_SERVER['HTTP_HOST'] === 'alefesouza.com.br') {
-  	$en = false;
-} else {
-  	$en = true;
-}
+$en = $_SERVER['HTTP_HOST'] !== 'alefesouza.com.br';
 ?>
 <nav class="mdl-navigation" id="site-items">
-    <a class="mdl-navigation__link mdl-button mdl-js-button mdl-js-ripple-effect<?php if($_SERVER['REQUEST_URI'] == '/') echo ' selected'; ?>" href="/">
+    <a class="mdl-navigation__link mdl-button mdl-js-button mdl-js-ripple-effect<?php if($_SERVER['REQUEST_URI'] === '/') echo ' selected'; ?>" href="/">
         <i class="mdl-color-text--black material-icons">home</i>
         <span><?= $en ? 'Home' : 'Início'; ?></span>
     </a>
 
     <?php lateralIcon('blog', 'library_books', 'Blog', 'Blog'); ?>
-    <?php lateralIcon('talks', 'record_voice_over', 'Lectures', 'Palestras'); ?>
+    <?php lateralIcon('talks', 'record_voice_over', 'Talks', 'Palestras'); ?>
     <?php lateralIcon('portfolio', 'work', 'Portfolio', 'Portfólio'); ?>
     <?php lateralIcon('contact', 'email', 'Contact', 'Contato'); ?>
     <span class="category"><?= $en ? 'Social networks' : 'Redes sociais'; ?></span>

@@ -1,18 +1,18 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 
-$en = $_SERVER['HTTP_HOST'] === 'alefesouza.com';
+$en = $_SERVER['HTTP_HOST'] !== 'alefesouza.com.br';
 
 if ($en) {
-    $language_link = 'https://alefesouza.com';
-} else {
     $language_link = 'http://alefesouza.com.br';
+} else {
+    $language_link = 'https://alefesouza.com';
 }
 ?>
 <!doctype html>
 <html lang="<?= $en ? 'en' : 'pt-br'; ?>">
 <head>
-    <?php if($_SERVER['REQUEST_URI'] === '/') { ?>
+    <?php if ($_SERVER['REQUEST_URI'] === '/') { ?>
     <title><?php bloginfo('name'); ?></title>
     <?php } else if($_SERVER['REQUEST_URI'] === '/blog/') { ?>
     <title>Blog - Alefe Souza</title>
@@ -30,7 +30,7 @@ if ($en) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="language" content="<?= $en ? 'en' : 'pt-br'; ?>" />
-    <?php if($en) { ?>
+    <?php if ($en) { ?>
     <meta name="google-site-verification" content="ui_JocACR5AX0U8EB4HLs8PeEfbck8Gg_0jOTy8jAqA" />
     <?php } else { ?>
     <meta name="google-site-verification" content="Qb1Wdn2NgglcpdgSEOICMWOiNS1KRRo9YZ3PBjRgAxk" />
@@ -38,8 +38,6 @@ if ($en) {
     <meta name="msvalidate.01" content="255D71299485237121F5717F3850B0D5" />
     <meta name="keywords" content="blog, <?= $en ? 'programming, photography, developer,' : 'programacao, fotografia, desenvolvedor,'; ?> java, c#, c sharp, php, xamarin, .net framework" />
     <meta name="author" content="Alefe Souza" />
-
-    <?php wp_head(); ?>
 
     <meta name="theme-color" content="#0000cc">
 
@@ -58,18 +56,18 @@ if ($en) {
 
     <script type="application/ld+json">
     <?= json_encode([
-        '@context' => 'http://schema.org',
-        '@type' => 'WebSite',
-        'url' => get_site_url(),
-        'author' => 'Alefe Souza',
-        'name' => 'Alefe Souza',
-        'alternateName' => get_bloginfo('name'),
-        'description' => get_bloginfo('description'),
-        'potentialAction' => [
-            '@type' => 'SearchAction',
-            'target' => get_site_url() . '?s={search_term_string}',
-            'query-input' => 'required name=search_term_string'
-        ]
+            '@context' => 'http://schema.org',
+            '@type' => 'WebSite',
+            'url' => get_site_url(),
+            'author' => 'Alefe Souza',
+            'name' => 'Alefe Souza',
+            'alternateName' => get_bloginfo('name'),
+            'description' => get_bloginfo('description'),
+            'potentialAction' => [
+                '@type' => 'SearchAction',
+                'target' => get_site_url() . '?s={search_term_string}',
+                'query-input' => 'required name=search_term_string'
+            ]
         ]);
     ?>
     </script>
@@ -94,6 +92,8 @@ if ($en) {
         ]);
         ?>
     </script>
+
+    <?php wp_head(); ?>
 </head>
 <body>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer mdl-layout--fixed-tabs">
@@ -104,7 +104,7 @@ if ($en) {
 
         <a class="mdl-button mdl-js-button mdl-button--icon change-language <?= $en ? 'pt-br' : 'en'; ?>" rel="noreferrer" title="<?= $en ? 'Português' : 'English'; ?>" href="<?= $language_link . '/' . $wp->request; ?>"></a>
         </div>
-        <?php if(endsWith($_SERVER['REQUEST_URI'], 'portfolio/')) { ?>
+        <?php if (endsWith($_SERVER['REQUEST_URI'], 'portfolio/')) { ?>
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
             <a href="#scroll-tab-1" class="mdl-layout__tab is-active"><?= $en ? 'My projects' : 'Meus projetos'; ?></a>
         </div>

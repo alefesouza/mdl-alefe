@@ -1,6 +1,6 @@
 <?php get_header();
 
-$en = $_SERVER['HTTP_HOST'] === 'alefesouza.com';
+$en = $_SERVER['HTTP_HOST'] !== 'alefesouza.com.br';
 ?>
 <main class="mdl-layout__content">
     <div class="wrapper">
@@ -22,26 +22,26 @@ $en = $_SERVER['HTTP_HOST'] === 'alefesouza.com';
         </div>
         <script type="application/ld+json">
         <?= json_encode([
-            '@context' => 'http://schema.org',
-            '@type' => 'BreadcrumbList',
-            'itemListElement' => [[
-                '@type' => 'ListItem',
-                'position' => 1,
-                'item' => [
-                    '@id' => get_site_url().'/portfolio',
-                    'name' => $en ? 'Portfolio' : 'Portfólio'
+                '@context' => 'http://schema.org',
+                '@type' => 'BreadcrumbList',
+                'itemListElement' => [
+                    [
+                        '@type' => 'ListItem',
+                        'position' => 1,
+                        'item' => [
+                            '@id' => get_site_url().'/portfolio',
+                            'name' => $en ? 'Portfolio' : 'Portfólio'
+                        ]
+                    ], [
+                        '@type' => 'ListItem',
+                        'position' => 2,
+                        'item' => [
+                            '@id' => get_site_url().'/'.$wp->request,
+                            'name' => get_the_title()
+                        ]
+                    ]
                 ]
-                ],
-                [
-                '@type' => 'ListItem',
-                'position' => 2,
-                'item' => [
-                    '@id' => get_site_url().'/'.$wp->request,
-                    'name' => get_the_title()
-                ]
-                ]
-            ]
-        ]); ?>
+            ]); ?>
       </script>
  <?php  }
     }

@@ -3,7 +3,7 @@
 $send = true;
 
 if(isset($_POST['send-contact'])) {
-  sendMail($_POST['name-contact'], $_POST['email-contact'], $_POST['subject-contact'], $_POST['message-contact']);
+    sendMail($_POST['name-contact'], $_POST['email-contact'], $_POST['subject-contact'], $_POST['message-contact']);
 }
 ?>
 <main class="mdl-layout__content page-contact">
@@ -51,17 +51,17 @@ if(isset($_POST['send-contact'])) {
     </div>
     <script type="application/ld+json">
     <?= json_encode([
-        '@context' => 'http://schema.org',
-        '@type' => 'BreadcrumbList',
-        'itemListElement' => [[
-        '@type' => 'ListItem',
-        'position' => 1,
-        'item' => [
-            '@id' => get_site_url() . '/' . $wp->request,
-            'name' => get_the_title()
-            ]
-        ]]
-    ]);
+            '@context' => 'http://schema.org',
+            '@type' => 'BreadcrumbList',
+            'itemListElement' => [[
+            '@type' => 'ListItem',
+            'position' => 1,
+            'item' => [
+                '@id' => get_site_url() . '/' . $wp->request,
+                'name' => get_the_title()
+                ]
+            ]]
+        ]);
     ?>
     </script>
 <?php }
